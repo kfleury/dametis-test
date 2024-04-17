@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
-import './App.css';
-import ColorPicker from './ColorPicker';
+import React from 'react'
+import './App.css'
+import HomeView from './view/HomeView'
 
 function App() {
-  const [color, setColor] = useState('red')
-
-  return (
-    <div className="App">
-      <ColorPicker color={color} onColorChange={setColor} colors={['red', 'blue', 'green']} />
-    </div>
-  );
+    return (
+        <div className="App">
+            <HomeView />
+        </div>
+    )
 }
 
-export default App;
+export default App

@@ -1,7 +1,0 @@
-{
-    "extends": ["eslint:recommended", "react-app"],
-    "rules": {
-      // Vos règles personnalisées ici
-    }
-  }
-  
