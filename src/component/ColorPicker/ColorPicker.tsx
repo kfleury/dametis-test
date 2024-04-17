@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, InputGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './ColorPicker.css'
 import { isValidColor } from '../../lib/useful'
 
-type IColorPicker = {
+type IColorPickerProps = {
     color: string;
     onColorChange: (color: string) => void;
     colors?: string[];
 }
 
-const ColorPicker: React.FC<IColorPicker> = ({color, onColorChange, colors}) => {
+const ColorPicker: React.FC<IColorPickerProps> = ({color, onColorChange, colors}) => {
     const [showDiv, setShowDiv] = useState(false)
     const [isValid, setIsValid] = useState(true)
     const [newColor, setNewColor] = useState('')
@@ -49,8 +49,9 @@ const ColorPicker: React.FC<IColorPicker> = ({color, onColorChange, colors}) => 
     }, [newColor, onColorChange])
 
     return (
-        <div className='color-picker-container'>
+        <div>
             <div className="color-picker-input-container">
+            <InputGroup className='color-picker-input-group'>
                 <Button 
                     onClick={toggleDiv}
                     style={{ 
@@ -61,13 +62,16 @@ const ColorPicker: React.FC<IColorPicker> = ({color, onColorChange, colors}) => 
                 >
                 </Button>
                 <Form.Control
+                className="color-picker-input"
                     type="text" 
                     placeholder="Nouvelle couleur"
                     value={newColor}
                     onChange={(e) => setNewColor(e.target.value)}
+                    onFocus={(e) => e.target.style.borderColor = 'black'}
+                    onBlur={(e) => e.target.style.borderColor = ''}
                     onKeyDown={handleKeyDown}
-                    className="color-picker-input"
                 />
+                </InputGroup>
                 {!isValid && <div className="color-picker-error">{'La couleur n\'est pas valide.'}</div>}
             </div>
             {showDiv && (

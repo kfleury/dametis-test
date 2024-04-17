@@ -1,17 +1,32 @@
-.color-picker-container {
-    margin-bottom: 20px;
+.row+.row {
+  margin-top: 1rem;
 }
-  
+
 .color-picker-input-container {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+}
+
+.form-control:focus {
+  box-shadow: none;  
+}
+
+.color-picker-input-group {
+  width: 195px;
+  margin-right: 10px;
 }
 
 .color-picker-input {
-  width: 155px;
-  margin-right: 10px;
   border-radius: 5px;
+  color: black;
+  box-shadow: none;
+}
+input::-ms-input-placeholder { /* Edge 12 -18 */
+  color: red;
+}
+input::placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
 }
 
 .color-picker-error {
@@ -25,6 +40,5 @@
   border-radius: 5px;
   padding: 0;
   cursor: pointer;
-  margin-right: 5px;
 }
   

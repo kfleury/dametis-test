@@ -4,14 +4,14 @@ import { Button, Col, Container, Row } from 'react-bootstrap'
 
 const HomeView: React.FC = () => {
     const [color, setColor] = useState('red')
-    const [colors, setColors] = useState(['red', 'blue', 'green'])
+    const [colors, setColors] = useState(['red', 'pink', 'grey'])
 
     const handleChangeColors = (colors: string[]) => {
         setColors(colors)
     }
 
     return (
-        <Container fluid='md'>
+        <Container style={{marginTop: '20px'}}>
             <Row>
                 <Col>
                     <Button onClick={() => handleChangeColors(['red', 'pink', 'grey'])}>oui</Button>
